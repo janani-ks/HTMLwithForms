@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crud Operation Template</title>
+        <link rel="stylesheet" href="design.css">
+    </head>
+    <body>
+                    <form autocomplete="off" class = "container" onsubmit="formSubmit(event)" method ="post">
+                        <div>
+                            <lable for="bar_code">Barcode(UPC)</lable>
+                            <input type="text" name="bar_code" id="bar_code" placeholder="Enter barcode">
+                        </div>
+                        <div>
+                            <lable for="dress_name">Dress Name</lable>
+                            <input type="text" name="dress_name" id="dress_name" placeholder="Enter Name">
+                        </div>
+                        <div>
+                            <lable for="qty">Quantity</lable>
+                            <input type="number" name="qty" id="qty" placeholder="Enter Quantity">
+                        </div>
+                        <div>
+                            <lable for="date">Purchasing Date</lable>
+                            <input type="date" name="date" id="date">
+                        </div>
+                        <div>
+                            <lable for="perPrice">Price(₹)</lable>
+                            <input type="number" name="perPrice" id="perPrice" placeholder="Enter Price">
+                        </div>
+                        <div>
+                            <input type="submit"  value="Submit">
+                            <input type="reset" value="Reset">
+                        </div>
+                    </form>
+                        <table class="list" id="storelist">
+                            <tr>
+                                <th>Barcode(UPC)</th>
+                                <th>Dress Name</th>
+                                <th>Quantity</th>
+                                <th>Purchasing Date</th>
+                                <th>Price</th>
+                            </tr>
+                        </table>
+        <script type="text/javascript" src="add_data.js"></script>
+    </body>
+</html>
