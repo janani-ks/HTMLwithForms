@@ -1,8 +1,7 @@
 let row = null;
 let Stored_data = [];
 let Global_Array = [];
-let heading_Arr = [];
-formSubmit = (e) => {
+const formSubmit = (e) => {
     e.preventDefault();
     readData();
     if(row === null){
@@ -14,7 +13,7 @@ formSubmit = (e) => {
     }
     resetRecord();
 }
-readData = () => {
+const readData = () => {
     let data = {};
     Stored_data = [];
     data["bar_code"] = document.getElementById("bar_code").value;
@@ -39,12 +38,10 @@ readData = () => {
     }
 }
 
-insertRecord = () => {
+const insertRecord = () => {
     if(check()){
     let newRow = storelist.insertRow();
     let i = 0;
-    //let html = "<table border ='111'>";
-    //html+="<tr>";
     Stored_data.forEach((value) =>{
         let cell = newRow.insertCell(i);
         cell.innerHTML = value;
@@ -53,21 +50,14 @@ insertRecord = () => {
     });
     let cell = newRow.insertCell(i);
     cell.innerHTML = `<button onClick ='onEdit(this)'>Edit</button><button onClick ='deleteRecord(this)'>Delete</button>`
-   // html+="<td><button onClick ='onEdit(this)'>Edit</button><button onClick ='deleteRecord(this)'>Delete</button></td>";
-   // html+="</tr>";
-   // html+="</table>";
-   // document.getElementById("tab").innerHTML = html;
 }
 else{
     alert("Already exist data !!");
 }
 }
-onEdit = (td) => {
+const onEdit = (td) => {
     row = td.parentElement.parentElement;
     let i = 0;
-    // heading_Arr.forEach((data,index) =>{
-    //     document.getElementsById(data).value = row.cells[index].innerHTML;
-    // });
     document.getElementById('bar_code').value = row.cells[i++].innerHTML;
     document.getElementById('dress_name').value = row.cells[i++].innerHTML;
     document.getElementById('qty').value = row.cells[i++].innerHTML;
@@ -75,14 +65,14 @@ onEdit = (td) => {
     document.getElementById('perPrice').value = row.cells[i++].innerHTML;
 
 }
-update = () => {
+const update = () => {
     if(check()){
     Stored_data.forEach((value,index) =>{
     row.cells[index].innerHTML = value;
     });
 }
 }
-deleteRecord = (td) => {
+const deleteRecord = (td) => {
     if(confirm("Do you want to delete this record?")){
         row = td.parentElement.parentElement;
         document.getElementById('storelist').deleteRow(row.rowIndex);
@@ -90,14 +80,14 @@ deleteRecord = (td) => {
     resetRecord();
     row = null;
 }
-resetRecord = () => {
+const resetRecord = () => {
     document.getElementById('bar_code').value = '';
     document.getElementById('dress_name').value = '';
     document.getElementById('qty').value = '';
     document.getElementById('date').value = '';
     document.getElementById('perPrice').value = '';
 }
-check = ()=>{
+const check = ()=>{
     let b = true;
     for(let i = 0 ; i< Global_Array.length;i++){
         b = true;
@@ -120,10 +110,3 @@ check = ()=>{
     Global_Array.push(Stored_data);
     return true;
 }
-// validate=()=>{
-//     for(let i=0;i<Stored_data.length;i++){
-//         if(Stored_data[i]==[]){
-//             document.getElementById("pass").innerHTML= Stored_data[i]+"is missing";   
-//         }
-//     }
-// }
