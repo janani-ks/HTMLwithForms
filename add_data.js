@@ -46,7 +46,6 @@ const insertRecord = () => {
         let cell = newRow.insertCell(i);
         cell.innerHTML = value;
         i++;
-        // html+="<td>"+value+"</td>";
     });
     let cell = newRow.insertCell(i);
     cell.innerHTML = `<button onClick ='onEdit(this)'>Edit</button><button onClick ='deleteRecord(this)'>Delete</button>`
